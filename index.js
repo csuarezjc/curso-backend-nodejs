@@ -14,12 +14,6 @@ app.get('/nueva-ruta', (req, res) => {
 
 routeApi(app);
 
-app.get('/categories/:categoryId/products/:productId', (req, res) => {
-  const { categoryId, productId } = req.params;
-
-  res.json([{ categoryId, productId }]);
-});
-
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
