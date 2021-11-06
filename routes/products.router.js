@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
   });
 });
 
-router.patch('/:id', async (req, res) => {
+router.patch('/:id', async (req, res, next) => {
   try {
     const body = req.body;
     const { id } = req.params;
@@ -45,9 +45,7 @@ router.patch('/:id', async (req, res) => {
       id,
     });
   } catch (error) {
-    res.status(404).json({
-      message: error.message,
-    });
+    next(error);
   }
 });
 
