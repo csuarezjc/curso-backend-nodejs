@@ -6,6 +6,7 @@ const {
   logErrors,
   errorHandler,
   boomErrorHandler,
+  ormErrorHandler,
 } = require('./middlewares/error.handler');
 
 const app = express();
@@ -38,6 +39,7 @@ routeApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+app.use(ormErrorHandler);
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
