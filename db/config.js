@@ -1,4 +1,3 @@
-const { uriTooLong } = require('@hapi/boom');
 const { config } = require('../config/config');
 
 const USER = encodeURIComponent(config.dbUser);
