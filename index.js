@@ -37,9 +37,9 @@ app.get('/nueva-ruta', (req, res) => {
 routeApi(app);
 
 app.use(logErrors);
+app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-app.use(ormErrorHandler);
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
