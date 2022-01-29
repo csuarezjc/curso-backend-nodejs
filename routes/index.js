@@ -5,7 +5,6 @@ const categoriesRouter = require('./categories.router');
 const usersRouter = require('./users.router');
 const ordersRouter = require('./orders.router');
 const customersRouter = require('./customers.router');
-const { custom } = require('joi');
 
 function routerApi(app) {
   const router = express.Router();
