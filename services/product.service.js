@@ -29,10 +29,10 @@ class ProductsService {
     const options = {
       include: ['category'],
     };
-    const { limit, offset } = query;
-    if (limit && offset) {
+    const { limit, page } = query;
+    if (limit && page) {
       options.limit = limit;
-      options.offset = offset;
+      options.offset = limit * (page - 1);
     }
     const products = await models.Product.findAll(options);
     return products;

@@ -8,7 +8,7 @@ const image = joi.string().uri();
 const categoryId = joi.number().integer();
 
 const limit = joi.number().integer();
-const offset = joi.number().integer();
+const page = joi.number().integer();
 
 const createProductSchema = joi.object({
   name: name.required(),
@@ -32,7 +32,7 @@ const getProductSchema = joi.object({
 
 const queryProductSchema = joi.object({
   limit,
-  offset,
+  page,
 });
 
 module.exports = {
