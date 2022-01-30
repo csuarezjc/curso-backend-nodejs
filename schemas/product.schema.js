@@ -7,6 +7,9 @@ const description = joi.string().min(10);
 const image = joi.string().uri();
 const categoryId = joi.number().integer();
 
+const price_min = joi.number().integer().min(10);
+const price_max = joi.number().integer().min(10);
+
 const limit = joi.number().integer();
 const page = joi.number().integer();
 
@@ -33,6 +36,12 @@ const getProductSchema = joi.object({
 const queryProductSchema = joi.object({
   limit,
   page,
+  price,
+  price_min,
+  price_max: price_max.when('price_min', {
+    is: joi.number().integer(),
+    then: joi.required(),
+  }),
 });
 
 module.exports = {
